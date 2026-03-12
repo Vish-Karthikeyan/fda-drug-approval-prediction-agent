@@ -1,12 +1,11 @@
 # FDA Approval Prediction Agent
 
-This project implements an interactive **FDA drug approval prediction agent** using **DSPy** and the **ReAct (Reasoning + Acting)** paradigm, following the provided `extra_credit.py` and `fda_agent_instructions.pdf` specifications.
+This project implements an interactive **FDA drug approval prediction agent** using **DSPy** and the **ReAct ** paradigm.
 
 The agent:
 - Uses DSPy Signatures and Modules (`ReAct`, `ChainOfThought`).
 - Calls multiple tools (ClinicalTrials.gov, openFDA, PubMed, FDA AdCom calendar).
 - Produces an **approval probability**, **key risks/tailwinds**, and a short **executive summary**.
-- Includes an interactive wrapper in `extra_credit.py` for the course assignment.
 
 ---
 
@@ -22,7 +21,7 @@ pip install -r requirements.txt
 
 3. **Environment variables / API keys**
 
-Preferred: create a `.env` file in the project root:
+Preferred: create a `.env` file (git-ignored) in the project root:
 
 ```bash
 OPENAI_API_KEY=sk-...
@@ -32,12 +31,6 @@ NCBI_API_KEY=...         # optional
 RUN_OPTIMIZER=false      # set true to run DSPy optimizer (slower, more tokens)
 DSPY_LM_MODEL=openai/gpt-4o
 ```
-
-For convenience in this homework, there is also an `api_keys.py` file. `fda_approval_agent/config.py` will:
-- First try to load keys from `.env`.
-- Fall back to values in `api_keys.py` if present.
-
-**Important**: In real projects, `.env` should be git-ignored and secrets never committed.
 
 ---
 
@@ -158,7 +151,5 @@ Note: Tests may perform real network calls to public APIs (ClinicalTrials.gov, o
 ---
 
 ## Notes & Limitations
-
-- The agent follows the structure and behaviors described in `fda_agent_instructions.pdf`, but:
-  - API response formats can evolve; parsing heuristics are designed to be robust but may not capture all edge cases.
-  - Some quantities (e.g., median review time) are approximated with simple heuristics to keep the implementation compact.
+- API response formats can evolve; parsing heuristics are designed to be robust but may not capture all edge cases.
+- Some quantities (e.g., median review time) are approximated with simple heuristics to keep the implementation compact.
