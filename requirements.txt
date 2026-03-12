@@ -1,0 +1,10 @@
+dspy-ai
+requests
+beautifulsoup4
+pandas
+numpy
+python-dotenv
+tqdm
+pytest
+tenacity
+
